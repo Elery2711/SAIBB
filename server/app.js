@@ -1,8 +1,13 @@
-const app = require('express')();
-const PORT = 5000
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+app.use(cors());
+app.use(bodyParser.json());
 
-app.listen(
-    PORT,
-    () => console.log(`Servidor corriento en http://localhost:${PORT}`)
-)
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+module.exports = app;
